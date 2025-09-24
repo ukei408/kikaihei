@@ -1,0 +1,61 @@
+using UnityEngine;
+using UnityEngine.InputSystem;  
+
+public class ActionMove : MonoBehaviour
+{
+    public float speed = 10f;
+    private Rigidbody2D rb;
+    private Vector2 moveInput;
+    private ActionController actionController;
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        actionController = GetComponent<ActionController>();
+    }
+
+    private void Update()
+    {
+        if (gameObject.CompareTag("Player"))
+        {
+            
+        }
+        else
+        {
+
+        }
+    }
+
+    //Controller.cs側でキャラクターが移動できる状況に限り、座標を動かす
+    private bool StopMoving = false;
+    private void FixedUpdate()
+    {
+        if (actionController.ThisAction == ActionController.ActionType.Moving)
+        {
+            rb.linearVelocity = moveInput * speed;
+            StopMoving = false;
+        }
+        else
+        {
+            if (!StopMoving)
+            {
+                rb.linearVelocity = Vector2.zero;
+                StopMoving = true;
+            }
+            
+        }
+    }
+
+    // 移動コマンド入力を受けつけ、Controller.csのIsMovingをtrueに
+    private void OnMove(InputValue value)
+    {
+        if (gameObject.CompareTag("Player"))
+        {
+            moveInput = value.Get<Vector2>();
+            if (actionController != null)
+            {
+                actionController.IsMoving = moveInput != Vector2.zero;
+            }
+        }
+    }
+}
