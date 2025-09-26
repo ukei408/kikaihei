@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fae78fd9586f6fd42b65133a76e0b454, type: 3}
+  m_Name: player_move_upper_01
+  m_EditorClassIdentifier: 
+  frames:
+  - {fileID: 5446312540472021188, guid: 7f31fdbf4fe305547b60b551eca1404c, type: 3}
+  - {fileID: -2612832419869135018, guid: 7f31fdbf4fe305547b60b551eca1404c, type: 3}
+  frameRate: 0.35
+  loop: 1

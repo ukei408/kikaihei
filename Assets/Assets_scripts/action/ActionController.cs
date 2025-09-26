@@ -7,13 +7,15 @@ public class ActionController : MonoBehaviour
     // 行動状態を判定するためのフラグ
     public bool IsDead;
     public bool IsDamage;   // thisAction = Damage
-    public bool IsAttack; // thisAction = Attack
+    public bool IsTrans; // thisAction = Trans
     public bool IsMove;    // thisAction = Move
 
     // キャラクターの行動種類
-    public enum ActionType { None, Move, Attack, Damage }
+    public enum ActionType { None, Move, Trans, Damage }
     [SerializeField] private ActionType thisAction = ActionType.None;
     public ActionType ThisAction => thisAction;
+    private ActionType prevAction = ActionType.None; // 前回のActionType
+    public float ActionTimer { get; private set; }  // 他から参照可能
 
     // 死亡処理フラグ
     private bool hasDied = false;
@@ -41,9 +43,9 @@ public class ActionController : MonoBehaviour
                 Dead();
             }
         }
-        else if (IsAttack)
+        else if (IsTrans)
         {
-            thisAction = ActionType.Attack;
+            thisAction = ActionType.Trans;
         }
         else if (IsMove)
         {
@@ -53,6 +55,16 @@ public class ActionController : MonoBehaviour
         {
             thisAction = ActionType.None;
         }
+
+        // ActionType が変わったら timer をリセット
+        if (thisAction != prevAction)
+        {
+            ActionTimer = 0f;
+            prevAction = thisAction;
+        }
+
+        // timer を進める
+        ActionTimer += Time.deltaTime;
     }
 
     private void Dead()
@@ -61,5 +73,10 @@ public class ActionController : MonoBehaviour
         hasDied = true;
 
         // 死亡時に行いたい処理（アニメ再生・当たり判定無効化など）をここに追加
+    }
+
+    public void ResetActionTimer()
+    {
+        ActionTimer = 0f;
     }
 }

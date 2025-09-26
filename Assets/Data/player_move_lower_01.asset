@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fae78fd9586f6fd42b65133a76e0b454, type: 3}
+  m_Name: player_move_lower_01
+  m_EditorClassIdentifier: 
+  frames:
+  - {fileID: -5370838090567439795, guid: 5e04c3e72ce64c845807799bca572f67, type: 3}
+  - {fileID: 9194908011146284294, guid: 5e04c3e72ce64c845807799bca572f67, type: 3}
+  - {fileID: 2646504712069858022, guid: 5e04c3e72ce64c845807799bca572f67, type: 3}
+  - {fileID: 6925056930537138940, guid: 5e04c3e72ce64c845807799bca572f67, type: 3}
+  - {fileID: -3302341498254277222, guid: 5e04c3e72ce64c845807799bca572f67, type: 3}
+  - {fileID: 7542416507697377926, guid: 5e04c3e72ce64c845807799bca572f67, type: 3}
+  - {fileID: -711827215852840550, guid: 5e04c3e72ce64c845807799bca572f67, type: 3}
+  frameRate: 0.07
+  loop: 1
