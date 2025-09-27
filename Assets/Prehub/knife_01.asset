@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fae78fd9586f6fd42b65133a76e0b454, type: 3}
+  m_Name: knife_01
+  m_EditorClassIdentifier: 
+  frames:
+  - {fileID: -1624567081415493275, guid: 93295654526e5a14f966d1e8bc296791, type: 3}
+  - {fileID: 3125564913228445706, guid: 93295654526e5a14f966d1e8bc296791, type: 3}
+  - {fileID: -3371414177108731823, guid: 93295654526e5a14f966d1e8bc296791, type: 3}
+  - {fileID: 7517784896281888359, guid: 93295654526e5a14f966d1e8bc296791, type: 3}
+  - {fileID: -6437804028025968242, guid: 93295654526e5a14f966d1e8bc296791, type: 3}
+  - {fileID: -7530020921077000097, guid: 93295654526e5a14f966d1e8bc296791, type: 3}
+  frameRate: 0.1
+  loop: 0
