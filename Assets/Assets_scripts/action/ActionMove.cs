@@ -8,6 +8,9 @@ public class ActionMove : MonoBehaviour
     private Vector2 moveInput;
     private ActionController actionController;
 
+    public enum FootSteps {None, Stone}
+    public FootSteps currentFootstep = FootSteps.None;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
