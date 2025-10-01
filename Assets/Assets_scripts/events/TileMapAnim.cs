@@ -1,20 +1,46 @@
 using UnityEngine;
 
+[RequireComponent(typeof(FootstepSwitcher))]
 [RequireComponent(typeof(SpriteRenderer))]
 public class TileMapAnim : MonoBehaviour
 {
     [Header("Animation Data")]
     public SpriteAnimData animData;
 
+    [Header("Generator Control")]
+    public bool callNext = true; // trueのときだけNext()を呼ぶ
+
     private SpriteRenderer spriteRenderer;
     private int currentFrame;
     private float timer;
 
-    private bool nextCalled = false; // Next() を一度しか呼ばない制御
+    private bool nextCalled = false;
+    private TileMapGenerator generator; // 自動探索用キャッシュ
 
     void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        // --- Generator を自動で探す ---
+        // 1. 親階層から探す
+        generator = GetComponentInParent<TileMapGenerator>();
+        if (generator == null && transform.parent != null)
+        {
+            // 2. 親の兄弟階層から探す
+            generator = transform.parent.GetComponentInChildren<TileMapGenerator>();
+        }
+        if (generator == null)
+        {
+            // 3. 最後の保険: シーン全体から探す
+            // 3. 最後の保険: シーン全体から探す
+            generator = FindFirstObjectByType<TileMapGenerator>();
+
+        }
+
+        if (generator == null)
+        {
+            Debug.LogWarning($"TileMapGenerator が見つかりませんでした: {name}");
+        }
     }
 
     void Start()
@@ -44,42 +70,28 @@ public class TileMapAnim : MonoBehaviour
                 if (animData.loop)
                 {
                     currentFrame = 0;
-                    nextCalled = false; // ループ時は再度呼べるようにする
+                    nextCalled = false; // ループ時はリセット
                 }
                 else
                 {
-                    currentFrame = animData.frames.Length - 1; // 最終フレームで止める
-                    enabled = false; // アニメ終了
+                    currentFrame = animData.frames.Length - 1;
+                    enabled = false; // 終了
                 }
             }
 
             spriteRenderer.sprite = animData.frames[currentFrame];
             timer = animData.frameRate;
 
-            // 「最終フレームの1つ前」に到達した瞬間
+            // 最終フレームの1つ前
             if (!nextCalled && currentFrame == animData.frames.Length - 2)
             {
-                CallGeneratorNext();
+                if (callNext && generator != null)
+                {
+                    generator.Next();
+                    Debug.Log("TileMapGenerator.Next() を呼び出しました");
+                }
                 nextCalled = true;
             }
-        }
-    }
-
-    private void CallGeneratorNext()
-    {
-        // 兄弟階層の TileMapGenerator を探す
-        Transform parent = transform.parent;
-        if (parent == null) return;
-
-        TileMapGenerator generator = parent.GetComponentInChildren<TileMapGenerator>();
-        if (generator != null)
-        {
-            generator.SendMessage("Next", SendMessageOptions.DontRequireReceiver);
-            Debug.Log("TileMapGenerator.Next() を呼び出しました");
-        }
-        else
-        {
-            Debug.LogWarning("兄弟階層に TileMapGenerator が見つかりませんでした");
         }
     }
 }

@@ -17,11 +17,27 @@ public class knife_01 : MonoBehaviour
             {
                 foreach (Transform sibling in parent)
                 {
-                    BulletAnim bulletAnim = sibling.GetComponent<BulletAnim>();
-                    if (bulletAnim != null)
+                    if (sibling.CompareTag("Bullet"))
                     {
-                        bulletAnim.Play();
+                        // knifeへの方向ベクトルを計算
+                        Vector2 dir = transform.position - sibling.position;
+
+                        // atan2で角度(ラジアン)を計算 → 度に変換
+                        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+
+                        // Z回転に反映（必要なら -90f 補正）
+                        sibling.rotation = Quaternion.Euler(0, 0, angle);
+
+                        // BulletAnim があれば再生
+                        BulletAnim bulletAnim = sibling.GetComponent<BulletAnim>();
+                        if (bulletAnim != null)
+                        {
+                            bulletAnim.Play();
+                        }
+
+                        Debug.Log($"Bullet {sibling.name} を knife 方向へ回転: {angle}度");
                     }
+
                 }
             }
         }

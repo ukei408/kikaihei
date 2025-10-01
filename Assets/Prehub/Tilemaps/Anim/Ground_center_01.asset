@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fae78fd9586f6fd42b65133a76e0b454, type: 3}
+  m_Name: Ground_center_01
+  m_EditorClassIdentifier: 
+  frames:
+  - {fileID: 9057061013955311557, guid: cba5ae30a7955b842827a3626ddacd69, type: 3}
+  - {fileID: 814723896459272222, guid: cba5ae30a7955b842827a3626ddacd69, type: 3}
+  - {fileID: -7102883038276961925, guid: cba5ae30a7955b842827a3626ddacd69, type: 3}
+  - {fileID: 562610774, guid: cba5ae30a7955b842827a3626ddacd69, type: 3}
+  - {fileID: 1881559041, guid: cba5ae30a7955b842827a3626ddacd69, type: 3}
+  frameRate: 0.015
+  loop: 0

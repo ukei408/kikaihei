@@ -50,5 +50,13 @@ public class TileMapJoiner : MonoBehaviour
         GameObject bottom = Instantiate(topBottomPrefab, bottomPos, Quaternion.identity, transform);
         bottom.transform.localScale = new Vector3(1, -1, 1);
         bottom.name = "Bottom";
+
+        // --- 追加: Bottom の TileMapAnim を無効化 ---
+        TileMapAnim bottomAnim = bottom.GetComponentInChildren<TileMapAnim>();
+        if (bottomAnim != null)
+        {
+            bottomAnim.callNext = false;
+            Debug.Log("Joiner の Bottom の TileMapAnim.callNext を false にしました");
+        }
     }
 }
