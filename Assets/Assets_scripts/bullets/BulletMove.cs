@@ -13,6 +13,7 @@ public class BulletMove : MonoBehaviour
 
     private Vector2 moveDir;
     private bool initialized = false;
+    private IPremoveProvider preMoveProvider;
     private bool prepared = false;
 
     void Update()
@@ -28,7 +29,7 @@ public class BulletMove : MonoBehaviour
             InitializeTarget();   // ← 一行で呼び出し
             if (!initialized) return; // 初期化できなければ移動処理しない
         }
-        if (prepared)
+        if (!prepared)
         {
             PreMove();
         }
@@ -55,6 +56,20 @@ public class BulletMove : MonoBehaviour
         moveDir = ((Vector2)target.position - (Vector2)transform.position).normalized;
         speed = InitialSpeed;
         initialized = true;
+
+        // 兄弟の中からIPremoveProviderを探す
+        foreach (Transform sibling in parent)
+        {
+            preMoveProvider = sibling.GetComponent<IPremoveProvider>();
+            if (preMoveProvider != null) break;
+        }
+
+        // 無ければ即 prepared にする
+        if (preMoveProvider == null)
+        {
+            prepared = true;
+            Debug.Log("PremoveProvider が見つからないので即座に prepared = true");
+        }
     }
 
     private void SetSpeed()
@@ -74,6 +89,13 @@ public class BulletMove : MonoBehaviour
 
     private void PreMove()
     {
-
+        if (preMoveProvider != null)
+        {
+            prepared = preMoveProvider.Premove(transform, ref speed, moveDir);
+        }
+        else
+        {
+            prepared = true;
+        }
     }
 }
