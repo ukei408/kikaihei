@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16a2a1969bf81c541be1812695d4c184, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topBottomPrefab: {fileID: 460266414635722366, guid: b5f458fc6beef4341a350d2ac4ecbfb6, type: 3}
-  centerPrefab: {fileID: 5327792449965432503, guid: 8170ecb4c2d0b11439787c4f9e0eac26, type: 3}
+  joinerTopBottomPrefab: {fileID: 460266414635722366, guid: b5f458fc6beef4341a350d2ac4ecbfb6, type: 3}
+  joinerCenterPrefab: {fileID: 5327792449965432503, guid: 8170ecb4c2d0b11439787c4f9e0eac26, type: 3}

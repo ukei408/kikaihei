@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class TileMapGenerator : MonoBehaviour
 {
-    [Header("Vertical Prefabs")]
+    [Header("Vertical Prefabs (Generator用)")]
     public GameObject topBottomPrefab;
     public GameObject centerPrefab;
 
@@ -14,74 +14,72 @@ public class TileMapGenerator : MonoBehaviour
     public int yWidth = 3;
     public int xWidth = 3;
 
-    private int currentXIndex = 0; // Next()が呼ばれるたびに進むカウンタ
-    private Vector3 startPos;      // 実際の生成開始位置
+    private int currentXIndex = 0; 
+    private Vector3 startPos;      
 
     void Start()
     {
-        // マップ全体のサイズを計算（間隔を1に変更）
-        float mapHeight = 1f * (yWidth + 2);  // 上(top) + center(yWidth) + 下(bottom)
-        float mapWidth  = 1f * (xWidth + 1);  // ループ + last分
+        float mapHeight = 1f * (yWidth + 2);
+        float mapWidth  = 1f * (xWidth + 1);
 
-        // 中心に合わせて開始位置をオフセット
         startPos = transform.position + new Vector3(-mapWidth / 2f, mapHeight / 2f, 0f);
 
-        GenerateVertical();
+        // 自分のPrefabを渡して縦生成
+        GenerateVertical(transform, startPos, yWidth, topBottomPrefab, centerPrefab);
     }
 
-    // --- 縦方向のみ生成 ---
-    private void GenerateVertical()
+    /// <summary>
+    /// 縦方向に Top, Center, Bottom を生成する共通処理
+    /// Prefabを外部から指定できるようにする
+    /// </summary>
+    public void GenerateVertical(Transform parent, Vector3 basePos, int yWidth,
+                                 GameObject topBottom, GameObject center)
     {
-        // 既存の子を削除
-        for (int i = transform.childCount - 1; i >= 0; i--)
+        if (topBottom == null || center == null)
         {
-            Destroy(transform.GetChild(i).gameObject);
+            Debug.LogError("GenerateVertical に必要なPrefabが設定されていません");
+            return;
         }
 
-        Vector3 basePos = startPos;
+        // Top
+        Instantiate(topBottom, basePos, Quaternion.identity, parent).name = "Top";
 
-        // Top（上側）
-        Instantiate(topBottomPrefab, basePos, Quaternion.identity, transform);
-
-        // Center（真ん中の繰り返し）
-        for (int y = 1; y <= yWidth; y++)
+        // Center
+        for (int i = 1; i <= yWidth; i++)
         {
-            Vector3 pos = basePos + new Vector3(0f, -1f * y, 0f);
-            Instantiate(centerPrefab, pos, Quaternion.identity, transform);
+            Vector3 pos = basePos + new Vector3(0, -1f * i, 0);
+            Instantiate(center, pos, Quaternion.identity, parent).name = "Center_" + i;
         }
 
-        // Bottom（下側、yスケール反転）
-        Vector3 bottomPos = basePos + new Vector3(0f, -1f * (yWidth + 1), 0f);
-        GameObject bottom = Instantiate(topBottomPrefab, bottomPos, Quaternion.identity, transform);
+        // Bottom
+        Vector3 bottomPos = basePos + new Vector3(0, -1f * (yWidth + 1), 0);
+        GameObject bottom = Instantiate(topBottom, bottomPos, Quaternion.identity, parent);
         bottom.transform.localScale = new Vector3(2f, -2f, 1f);
+        bottom.name = "Bottom";
 
         TileMapAnim bottomAnim = bottom.GetComponent<TileMapAnim>();
         if (bottomAnim != null)
         {
             bottomAnim.callNext = false;
-            Debug.Log("Bottom の TileMapAnim.callNext を false にしました");
+            Debug.Log($"{parent.name} の Bottom の TileMapAnim.callNext を false にしました");
         }
     }
 
-    // --- 横方向の生成（Nextが呼ばれたときだけ） ---
+    // --- 横方向生成 ---
     public void Next()
     {
         Vector3 basePos = startPos;
-
-        // 次のX座標を計算（間隔を1に変更）
         float xPos = basePos.x + 1f * (currentXIndex + 1);
         Vector3 pos = new Vector3(xPos, basePos.y, 0f);
 
         if (currentXIndex < xWidth)
         {
-            // loopXPrefab を配置（親は generator 自身）
             Instantiate(loopXPrefab, pos, Quaternion.identity, transform);
         }
         else if (currentXIndex == xWidth)
         {
-            // 最後の位置に lastXPrefab を配置（親は generator 自身）
             GameObject last = Instantiate(lastXPrefab, pos, Quaternion.identity, transform);
-            last.transform.SetParent(transform); // 念のため明示的に設定
+            last.transform.SetParent(transform);
         }
 
         currentXIndex++;

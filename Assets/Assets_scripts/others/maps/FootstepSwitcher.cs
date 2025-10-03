@@ -12,13 +12,4 @@ public class FootstepSwitcher : MonoBehaviour
             actionMove.currentFootstep = footstepType;
         }
     }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        ActionMove actionMove = collision.GetComponent<ActionMove>();
-        if (actionMove != null)
-        {
-            actionMove.currentFootstep = ActionMove.FootSteps.None;
-        }
-    }
 }
