@@ -19,9 +19,9 @@ public class TileMapGenerator : MonoBehaviour
 
     void Start()
     {
-        // マップ全体のサイズを計算
-        float mapHeight = 0.5f * (yWidth + 2);  // 上(top) + center(yWidth) + 下(bottom)
-        float mapWidth  = 0.5f * (xWidth + 1);  // ループ + last分
+        // マップ全体のサイズを計算（間隔を1に変更）
+        float mapHeight = 1f * (yWidth + 2);  // 上(top) + center(yWidth) + 下(bottom)
+        float mapWidth  = 1f * (xWidth + 1);  // ループ + last分
 
         // 中心に合わせて開始位置をオフセット
         startPos = transform.position + new Vector3(-mapWidth / 2f, mapHeight / 2f, 0f);
@@ -46,14 +46,14 @@ public class TileMapGenerator : MonoBehaviour
         // Center（真ん中の繰り返し）
         for (int y = 1; y <= yWidth; y++)
         {
-            Vector3 pos = basePos + new Vector3(0f, -0.5f * y, 0f);
+            Vector3 pos = basePos + new Vector3(0f, -1f * y, 0f);
             Instantiate(centerPrefab, pos, Quaternion.identity, transform);
         }
 
         // Bottom（下側、yスケール反転）
-        Vector3 bottomPos = basePos + new Vector3(0f, -0.5f * (yWidth + 1), 0f);
+        Vector3 bottomPos = basePos + new Vector3(0f, -1f * (yWidth + 1), 0f);
         GameObject bottom = Instantiate(topBottomPrefab, bottomPos, Quaternion.identity, transform);
-        bottom.transform.localScale = new Vector3(1f, -1f, 1f);
+        bottom.transform.localScale = new Vector3(2f, -2f, 1f);
 
         TileMapAnim bottomAnim = bottom.GetComponent<TileMapAnim>();
         if (bottomAnim != null)
@@ -68,8 +68,8 @@ public class TileMapGenerator : MonoBehaviour
     {
         Vector3 basePos = startPos;
 
-        // 次のX座標を計算
-        float xPos = basePos.x + 0.5f * (currentXIndex + 1);
+        // 次のX座標を計算（間隔を1に変更）
+        float xPos = basePos.x + 1f * (currentXIndex + 1);
         Vector3 pos = new Vector3(xPos, basePos.y, 0f);
 
         if (currentXIndex < xWidth)

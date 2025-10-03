@@ -37,18 +37,18 @@ public class TileMapJoiner : MonoBehaviour
         GameObject top = Instantiate(topBottomPrefab, basePos, Quaternion.identity, transform);
         top.name = "Top";
 
-        // center を yWidth 回生成
+        // center を yWidth 回生成（間隔を 1 に変更）
         for (int i = 1; i <= yWidth; i++)
         {
-            Vector3 pos = basePos + new Vector3(0, -0.5f * i, 0);
+            Vector3 pos = basePos + new Vector3(0, -1f * i, 0);
             GameObject center = Instantiate(centerPrefab, pos, Quaternion.identity, transform);
             center.name = "Center_" + i;
         }
 
-        // bottom (最後の端, yスケール反転)
-        Vector3 bottomPos = basePos + new Vector3(0, -0.5f * (yWidth + 1), 0);
+        // bottom (最後の端, yスケール反転) → 間隔も 1 に変更
+        Vector3 bottomPos = basePos + new Vector3(0, -1f * (yWidth + 1), 0);
         GameObject bottom = Instantiate(topBottomPrefab, bottomPos, Quaternion.identity, transform);
-        bottom.transform.localScale = new Vector3(1, -1, 1);
+        bottom.transform.localScale = new Vector3(2, -2, 1);
         bottom.name = "Bottom";
 
         // --- 追加: Bottom の TileMapAnim を無効化 ---
