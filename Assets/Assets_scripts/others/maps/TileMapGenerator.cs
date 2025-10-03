@@ -15,9 +15,17 @@ public class TileMapGenerator : MonoBehaviour
     public int xWidth = 3;
 
     private int currentXIndex = 0; // Next()が呼ばれるたびに進むカウンタ
+    private Vector3 startPos;      // 実際の生成開始位置
 
     void Start()
     {
+        // マップ全体のサイズを計算
+        float mapHeight = 0.5f * (yWidth + 2);  // 上(top) + center(yWidth) + 下(bottom)
+        float mapWidth  = 0.5f * (xWidth + 1);  // ループ + last分
+
+        // 中心に合わせて開始位置をオフセット
+        startPos = transform.position + new Vector3(-mapWidth / 2f, mapHeight / 2f, 0f);
+
         GenerateVertical();
     }
 
@@ -30,7 +38,7 @@ public class TileMapGenerator : MonoBehaviour
             Destroy(transform.GetChild(i).gameObject);
         }
 
-        Vector3 basePos = transform.position;
+        Vector3 basePos = startPos;
 
         // Top（上側）
         Instantiate(topBottomPrefab, basePos, Quaternion.identity, transform);
@@ -58,7 +66,7 @@ public class TileMapGenerator : MonoBehaviour
     // --- 横方向の生成（Nextが呼ばれたときだけ） ---
     public void Next()
     {
-        Vector3 basePos = transform.position;
+        Vector3 basePos = startPos;
 
         // 次のX座標を計算
         float xPos = basePos.x + 0.5f * (currentXIndex + 1);

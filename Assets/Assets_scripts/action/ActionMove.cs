@@ -1,15 +1,18 @@
 using UnityEngine;
-using UnityEngine.InputSystem;  
+using UnityEngine.InputSystem;
 
 public class ActionMove : MonoBehaviour
 {
     public float speed = 10f;
-    private Rigidbody2D rb;
     private Vector2 moveInput;
     private ActionController actionController;
+    private Rigidbody2D rb;
 
-    public enum FootSteps {None, Stone}
-    public FootSteps currentFootstep = FootSteps.None;
+    private const float PPU = 120f; // Pixels Per Unit
+    private float pixelSize => 1f / PPU;
+
+    public enum FootSteps { None, Stone }
+    public FootSteps currentFootstep = FootSteps.None; 
 
     private void Awake()
     {
@@ -17,48 +20,34 @@ public class ActionMove : MonoBehaviour
         actionController = GetComponent<ActionController>();
     }
 
-    private void Update()
-    {
-        if (gameObject.CompareTag("Player"))
-        {
-            
-        }
-        else
-        {
-
-        }
-    }
-
-    //Controller.cs側でキャラクターが移動できる状況に限り、座標を動かす
     private void FixedUpdate()
     {
         if (actionController.ThisAction == ActionController.ActionType.Move)
         {
-            rb.linearVelocity = moveInput * speed;
+            // 通常移動
+            Vector2 targetPos = rb.position + moveInput * speed * Time.fixedDeltaTime;
+
+            // ★ ピクセル単位にスナップ
+            targetPos.x = Mathf.Round(targetPos.x / pixelSize) * pixelSize;
+            targetPos.y = Mathf.Round(targetPos.y / pixelSize) * pixelSize;
+
+            rb.MovePosition(targetPos);
         }
 
-        if (gameObject.CompareTag("Player"))
+        if (CompareTag("Player") && moveInput == Vector2.zero)
         {
-            if(moveInput == Vector2.zero)
-            {
-                if (actionController != null)
-                {
-                    actionController.IsMove = false;
-                }
-            }
+            if (actionController != null)
+                actionController.IsMove = false;
         }
     }
 
-    // 移動コマンド入力を受けつけ、Controller.csのIsMoveをtrueに
     private void OnMove(InputValue value)
     {
-        if (gameObject.CompareTag("Player"))
+        if (CompareTag("Player"))
         {
             moveInput = value.Get<Vector2>();
             if (actionController != null)
-            {
                 actionController.IsMove = true;
-            }
         }
     }
 }

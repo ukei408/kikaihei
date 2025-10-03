@@ -14,9 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   frames:
   - {fileID: -7863974651899519868, guid: 4aa1090ae289bdc45a8f92cee03207a3, type: 3}
-  - {fileID: -7265498739328964242, guid: 4aa1090ae289bdc45a8f92cee03207a3, type: 3}
   - {fileID: 6065642329099851198, guid: 4aa1090ae289bdc45a8f92cee03207a3, type: 3}
   - {fileID: -784726448, guid: 4aa1090ae289bdc45a8f92cee03207a3, type: 3}
   - {fileID: -864570272, guid: 4aa1090ae289bdc45a8f92cee03207a3, type: 3}
-  frameRate: 0.015
+  frameRate: 0.018
   loop: 0

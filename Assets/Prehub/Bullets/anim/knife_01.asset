@@ -19,5 +19,5 @@ MonoBehaviour:
   - {fileID: 7517784896281888359, guid: 93295654526e5a14f966d1e8bc296791, type: 3}
   - {fileID: -6437804028025968242, guid: 93295654526e5a14f966d1e8bc296791, type: 3}
   - {fileID: -7530020921077000097, guid: 93295654526e5a14f966d1e8bc296791, type: 3}
-  frameRate: 0.05
+  frameRate: 0.03
   loop: 0

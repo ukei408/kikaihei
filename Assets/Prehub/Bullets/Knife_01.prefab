@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 6775613549993855919}
   - component: {fileID: 5050342081325702797}
   - component: {fileID: 1712418780014785258}
+  - component: {fileID: 450261192966728096}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Bullet
@@ -81,8 +82,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   InitialSpeed: 0
-  Acceleration: 3
-  MaxSpeed: 30
+  Acceleration: 2
+  MaxSpeed: 50
   OnPlaced: 0
 --- !u!212 &5050342081325702797
 SpriteRenderer:
@@ -152,6 +153,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animData: {fileID: 11400000, guid: a3753aae6a000a644a068ed0d2e40043, type: 2}
+--- !u!114 &450261192966728096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7391956802139013794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4cd23a612e75da488464513b51de8ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxXDistance: 20
+  maxYDistance: 15
 --- !u!1 &8717034944282817800
 GameObject:
   m_ObjectHideFlags: 0
