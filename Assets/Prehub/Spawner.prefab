@@ -45,4 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 5071559929330926117, guid: 394df9eab702c7344a984372d795aeaf, type: 3}
-  interval: 1
+  interval: 0.1

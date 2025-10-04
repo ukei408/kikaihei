@@ -1,10 +1,43 @@
 fileFormatVersion: 2
-guid: de3258b4125e03b41b25040f00f9fd73
+guid: 598f58d7b9ee5b84ead67c01716f958f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -203414773836835270
-    second: blood_01_0
+      213: 5470459814616328853
+    second: tears_02_0
+  - first:
+      213: 636398257127277805
+    second: tears_02_1
+  - first:
+      213: 1995554054354854057
+    second: tears_02_2
+  - first:
+      213: 4647145277317920782
+    second: tears_02_3
+  - first:
+      213: 7033061114316555449
+    second: tears_02_4
+  - first:
+      213: -6744608008398082772
+    second: tears_02_5
+  - first:
+      213: 692360650178043954
+    second: tears_02_6
+  - first:
+      213: -4486189199904978898
+    second: tears_02_7
+  - first:
+      213: 7113406258460315485
+    second: tears_02_8
+  - first:
+      213: 5091988860387877237
+    second: tears_02_9
+  - first:
+      213: 9093476492950401780
+    second: tears_02_10
+  - first:
+      213: 118742363657380451
+    second: tears_02_11
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +133,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: blood_01_0
+      name: tears_02_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 40
-        height: 40
+        width: 120
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,52 +148,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a36936747535d2df0800000000000000
-      internalID: -203414773836835270
+      spriteID: 59a6148b73afaeb40800000000000000
+      internalID: 5470459814616328853
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blood_01_1
+      name: tears_02_1
       rect:
         serializedVersion: 2
-        x: 40
+        x: 120
         y: 0
-        width: 40
-        height: 40
+        width: 120
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: b24266a3a91133447b8dae3b1b79cdbd
-      internalID: 1659262847
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: blood_01_2
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 0
-        width: 40
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 83ab04a5f17395f4188c6b3fc583eae7
-      internalID: 694776590
+      spriteID: de4cfb3d7d0f4d800800000000000000
+      internalID: 636398257127277805
       vertices: []
       indices: 
       edges: []
@@ -169,7 +180,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 2934b132852530b49af8f310cf4473c6
+    spriteID: e944792f34f0a844bb97e9fe35e7121d
     internalID: 0
     vertices: []
     indices: 
@@ -179,11 +190,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":3.0,"y":1.0},"gridSpriteSize":{"x":40.0,"y":40.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":2.0,"y":1.0},"gridSpriteSize":{"x":120.0,"y":120.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      blood_01_0: -203414773836835270
-      blood_01_1: 1659262847
-      blood_01_2: 694776590
+      tears_02_0: 5470459814616328853
+      tears_02_1: 636398257127277805
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

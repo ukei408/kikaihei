@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: de3258b4125e03b41b25040f00f9fd73
+guid: 54ecd3df00658484a8d4146a5c927afd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -203414773836835270
-    second: blood_01_0
+      213: -1962023106182331601
+    second: tears_01_0
+  - first:
+      213: -2521662370101465495
+    second: tears_01_1
+  - first:
+      213: 416145421410997135
+    second: tears_01_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +106,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: blood_01_0
+      name: tears_01_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,14 +121,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a36936747535d2df0800000000000000
-      internalID: -203414773836835270
+      spriteID: f23c4e2516e75c4e0800000000000000
+      internalID: -1962023106182331601
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blood_01_1
+      name: tears_01_1
       rect:
         serializedVersion: 2
         x: 40
@@ -135,16 +141,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: b24266a3a91133447b8dae3b1b79cdbd
-      internalID: 1659262847
+      spriteID: 96ee1aa4f61410dd0800000000000000
+      internalID: -2521662370101465495
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blood_01_2
+      name: tears_01_2
       rect:
         serializedVersion: 2
         x: 80
@@ -157,10 +163,10 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 83ab04a5f17395f4188c6b3fc583eae7
-      internalID: 694776590
+      spriteID: f839b125e0276c500800000000000000
+      internalID: 416145421410997135
       vertices: []
       indices: 
       edges: []
@@ -169,7 +175,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 2934b132852530b49af8f310cf4473c6
+    spriteID: ae7f62a10f123964bbfb975e57145e50
     internalID: 0
     vertices: []
     indices: 
@@ -181,9 +187,9 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":3.0,"y":1.0},"gridSpriteSize":{"x":40.0,"y":40.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      blood_01_0: -203414773836835270
-      blood_01_1: 1659262847
-      blood_01_2: 694776590
+      tears_01_0: -1962023106182331601
+      tears_01_1: -2521662370101465495
+      tears_01_2: 416145421410997135
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

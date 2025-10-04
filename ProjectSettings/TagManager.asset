@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Bullet
+  - Tilemap
   layers:
   - Default
   - TransparentFX
@@ -45,10 +46,13 @@ TagManager:
   - name: Map
     uniqueID: 821178425
     locked: 0
-  - name: Character
+  - name: Characters
     uniqueID: 3184284963
     locked: 0
-  - name: Bullet
+  - name: Effects
+    uniqueID: 1275662731
+    locked: 0
+  - name: Bullets
     uniqueID: 2309853227
     locked: 0
   m_RenderingLayers:
