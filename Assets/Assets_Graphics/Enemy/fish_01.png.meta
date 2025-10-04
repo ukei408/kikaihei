@@ -109,10 +109,10 @@ TextureImporter:
       name: fish_01_0
       rect:
         serializedVersion: 2
-        x: 23
-        y: 128
-        width: 104
-        height: 72
+        x: 0
+        y: 0
+        width: 240
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,10 +131,10 @@ TextureImporter:
       name: fish_01_1
       rect:
         serializedVersion: 2
-        x: 126
-        y: 3
-        width: 114
-        height: 193
+        x: 240
+        y: 0
+        width: 240
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -149,33 +149,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: fish_01_2
-      rect:
-        serializedVersion: 2
-        x: 263
-        y: 2
-        width: 216
-        height: 199
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e7a8c216f76041910800000000000000
-      internalID: 1807076494643333758
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 607f10dbd1b9160409ae54db7515ef10
     internalID: 0
     vertices: []
     indices: 
@@ -183,11 +161,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":2.0,"y":1.0},"gridSpriteSize":{"x":240.0,"y":240.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       fish_01_0: 4247699695738043255
       fish_01_1: -2485981265408709467
-      fish_01_2: 1807076494643333758
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

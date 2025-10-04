@@ -46,11 +46,11 @@ TagManager:
   - name: Map
     uniqueID: 821178425
     locked: 0
-  - name: Characters
-    uniqueID: 3184284963
-    locked: 0
   - name: Effects
     uniqueID: 1275662731
+    locked: 0
+  - name: Characters
+    uniqueID: 3184284963
     locked: 0
   - name: Bullets
     uniqueID: 2309853227

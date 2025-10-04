@@ -18,6 +18,11 @@ public class FootstepSwitcher : MonoBehaviour
         ActionMove actionMove = collision.GetComponent<ActionMove>();
         if (actionMove != null)
         {
+            // すでに同じ足音タイプなら何もしない
+            if (actionMove.currentFootstep == footstepType)
+                return;
+
+            // 足音タイプを切り替える
             actionMove.currentFootstep = footstepType;
         }
     }

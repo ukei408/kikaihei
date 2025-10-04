@@ -11,7 +11,7 @@ public class ActionMove : MonoBehaviour
     private const float PPU = 120f; // Pixels Per Unit
     private float pixelSize => 1f / PPU;
 
-    public enum FootSteps { None, Stone }
+    public enum FootSteps { None, Blood, Stone }
     public FootSteps currentFootstep = FootSteps.None; 
 
     private void Awake()
